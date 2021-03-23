@@ -4,6 +4,7 @@ RUN apt install -y curl wget bash nano net-tools fping iperf mz nmap netcat trac
 COPY ./files/mreceive /usr/local/sbin/
 COPY ./files/msend /usr/local/sbin/
 COPY ./files/udpreplay /usr/local/bin/
+RUN chmod +x /usr/local/sbin/mreceive /usr/local/sbin/msend /usr/local/bin/udpreplay
 
 # nginx shenanigans so container persists (doesn't auto complete and exit)
 RUN ln -sf /dev/stdout /var/log/nginx/access.log
