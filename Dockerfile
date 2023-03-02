@@ -15,4 +15,4 @@ RUN chmod +x /usr/local/sbin/mreceive /usr/local/sbin/msend /usr/local/bin/udpre
 ## EXPOSE 80 443
 #CMD ["nginx", "-g", "daemon off;"]
 
-CMD exec sh -c 'while true ;do wait ;done'
+CMD exec sh -c 'while true ;do sleep 60 ;done'
