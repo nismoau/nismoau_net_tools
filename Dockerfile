@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 RUN apt update
-RUN echo "wireshark-common wireshark-common/install-setuid boolean true" | sudo debconf-set-selections
-RUN DEBIAN_FRONTEND=noninteractive apt -y install wireshark
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y tshark
+RUN yes yes | DEBIAN_FRONTEND=teletype dpkg-reconfigure wireshark-common
 RUN apt install -y curl wget openssh-client bash nano net-tools fping iperf mz nmap netcat traceroute net-tools tcpdump termshark dnsutils iputils-ping libpcap-dev vnstat iftop iptraf nginx lsof
 COPY ./files/mreceive /usr/local/sbin/
 COPY ./files/msend /usr/local/sbin/
